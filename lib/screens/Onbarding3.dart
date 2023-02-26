@@ -1,48 +1,42 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:travel/components/circle.dart';
-import 'package:travel/screens/Onboarding2.dart';
+import 'package:travel/screens/Onboarding.dart';
 
-
-class Onboarding extends StatelessWidget {
-  bool land = false;
-
+class Onboarding3 extends StatelessWidget {
+  const Onboarding3({super.key});
 
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size.height;
-    return   Scaffold(
+    return Scaffold(
       body: Column(
         children: [
           Container(
             height: media*0.5,
-            // padding: EdgeInsets.only(top: 100),
-            child: Image.asset('images/onboarding1.png')),
             
+            child: Image.asset('images/onboarding3.png')),
            
+            
           Container(
-            height: media * 0.15,
+            height: media*0.15,
             padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text("Make your own private travel plane",
+            child: Text("High-end leisure projects to choose from",
             textAlign: TextAlign.center, 
             style: Theme.of(context).textTheme.titleLarge,)),
-            
              Container(
-               height: media * 0.15,
+              height: media * 0.15,
             padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text("Formulate your strategy to receive wonderful gift packs",
+            child: Text("The world's first-class modern leisure and entertainment method",
             textAlign: TextAlign.center, 
             style: Theme.of(context).textTheme.titleMedium,)
-            
             ),
-            
-            Column(
+         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
              Container(
-             
+              
               child: GestureDetector( onTap: () =>Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Onboarding2())),
+                builder: (context) => Onboarding())),
                 child: Circle()),
             ),
           ],

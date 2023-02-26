@@ -63,6 +63,7 @@ flutter:
   assets:
     - images/onboarding1.png
     - images/onboarding2.png
+    - images/onboarding3.png
     - images/arrow.png
   #   - images/a_dot_ham.jpeg
 
