@@ -11,37 +11,40 @@ class Onboarding3 extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(
+            height: media * 0.5,
+            child: Image.asset('images/onboarding3.png'),
+          ),
           Container(
-            height: media*0.5,
-            
-            child: Image.asset('images/onboarding3.png')),
-           
-            
+            height: media * 0.15,
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              'High-end leisure projects to choose from',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
           Container(
-            height: media*0.15,
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text("High-end leisure projects to choose from",
-            textAlign: TextAlign.center, 
-            style: Theme.of(context).textTheme.titleLarge,)),
-             Container(
-              height: media * 0.15,
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text("The world's first-class modern leisure and entertainment method",
-            textAlign: TextAlign.center, 
-            style: Theme.of(context).textTheme.titleMedium,)
+            height: media * 0.15,
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              "The world's first-class modern leisure and entertainment method",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-         Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-             Container(
-              
-              child: GestureDetector( onTap: () =>Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Onboarding())),
-                child: Circle()),
-            ),
-          ],
-         )
-            
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Onboarding()),
+                ),
+                child: const Circle(),
+              ),
+            ],
+          )
         ],
       ),
     );

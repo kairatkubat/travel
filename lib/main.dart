@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:travel/screens/Onboarding.dart';
-import 'package:travel/screens/Onboarding2.dart';
 import 'package:flutter/services.dart';
+import 'package:travel/screens/Onboarding.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp
-   ]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -21,8 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: const TextTheme(
           titleLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(fontSize: 18, color: Colors.grey)
-        )
+          titleMedium: TextStyle(fontSize: 18, color: Colors.grey),
+        ),
       ),
       home: Onboarding(),
     );
