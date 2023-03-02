@@ -14,10 +14,9 @@ class Onboarding extends StatelessWidget {
     return   Scaffold(
       body: Column(
         children: [
-          Container(
-            height: media*0.5,
+          
             // padding: EdgeInsets.only(top: 100),
-            child: Image.asset('images/onboarding1.png')),
+             Image.asset('images/onboarding1.png'),
             
            
           Container(
