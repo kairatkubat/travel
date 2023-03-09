@@ -1,17 +1,26 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travel/screens/Onboarding.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'features/home/presentation/home_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -21,7 +30,11 @@ class MyApp extends StatelessWidget {
           titleMedium: TextStyle(fontSize: 18, color: Colors.grey),
         ),
       ),
-      home: Onboarding(),
+      home: const HomePage(),
     );
+  }
+
+  void onSubmitNameTextField(WidgetRef ref, String value) {
+    ref.read(userStateNotifierProvider.notifier).updateName(value);
   }
 }
