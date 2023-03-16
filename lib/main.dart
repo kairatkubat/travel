@@ -1,23 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:travel/screens/Onboarding.dart';
-import 'package:travel/screens/Onboarding2.dart';
-import 'package:flutter/services.dart';
-import 'package:travel/screens/example.2.dart';
+import 'dart:math';
 
-import 'screens/Example.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp
-   ]);
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -27,7 +27,11 @@ class MyApp extends StatelessWidget {
           titleMedium: TextStyle(fontSize: 18, color: Colors.grey)
         )
       ),
-      home: Example2(),
+      home: Onboarding(),
     );
+  }
+
+  void onSubmitNameTextField(WidgetRef ref, String value) {
+    ref.read(userStateNotifierProvider.notifier).updateName(value);
   }
 }
