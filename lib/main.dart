@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel/screens/Onboarding.dart';
 import 'package:travel/screens/Onboarding2.dart';
 import 'package:flutter/services.dart';
-import 'package:travel/screens/home_screen.dart';
+import 'package:travel/screens/example.2.dart';
 
 import 'screens/Example.dart';
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           titleMedium: TextStyle(fontSize: 18, color: Colors.grey)
         )
       ),
-      home: Example(),
+      home: Example2(),
     );
   }
 }

@@ -59,7 +59,8 @@ class DataConsumerStateless extends StatelessWidget {
 
   Widget build(BuildContext context) {
     // final value = context.findAncestorStateOfType<_DataOwnerWidgetState>()?._value?? 0;
-    final value = context.dependOnInheritedWidgetOfExactType<DataProviderInherited>()?.valueOne?? 0; 
+    final value = context.dependOnInheritedWidgetOfExactType<DataProviderInherited>(
+      aspect: 'one')?.valueOne?? 0; 
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +90,7 @@ class _DataConsumerStatefullState extends State<DataConsumerStatefull> {
     // context.findAncestorStateOfType<_DataOwnerWidgetState>()?._value?? 0;
     //
     // final value = getIngerit<DataProviderInherited>(context)?.valueOne?? 0;
-    final value = context.dependOnInheritedWidgetOfExactType<DataProviderInherited>()?.valueTwo?? 0;
+    final value  = context.dependOnInheritedWidgetOfExactType<DataProviderInherited>(aspect: 'two')?.valueTwo?? 0;
    
     return Text('$value ');
   }
@@ -109,7 +110,7 @@ final element =
 }
 //ingerited widget
 
-class DataProviderInherited extends InheritedWidget {
+class DataProviderInherited extends InheritedModel<String> {
   final int valueOne;
   final int valueTwo; 
   const DataProviderInherited({
@@ -128,5 +129,13 @@ class DataProviderInherited extends InheritedWidget {
   @override
   bool updateShouldNotify(DataProviderInherited oldWidget) {
     return valueOne != oldWidget.valueOne || valueTwo != oldWidget.valueTwo; 
+  }
+  
+  @override
+  bool updateShouldNotifyDependent(covariant
+   DataProviderInherited oldWidget, Set<String> dependencies) {
+   final isValueOneUpdated = valueOne != oldWidget.valueOne && dependencies.contains('one');
+   final isValueTwoUpdated = valueTwo != oldWidget.valueTwo && dependencies.contains('two');
+   return isValueOneUpdated||isValueTwoUpdated;
   }
 }
